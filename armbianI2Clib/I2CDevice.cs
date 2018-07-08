@@ -24,6 +24,11 @@ namespace armbianI2Clib
             if (deviceReturnCode < 0) throw new Exception($"Can't set I2C address. Returned {deviceReturnCode}");
         }
 
+        /// <summary>
+        /// Reads from I2C
+        /// </summary>
+        /// <param name="length">nr of bytes to read</param>
+        /// <returns></returns>
         public byte[] Read(int length)
         {
             if (length < 1 || length > maxBufferLength) throw new Exception("Length is out of bounds");
@@ -35,6 +40,11 @@ namespace armbianI2Clib
              return result;
         }
 
+        /// <summary>
+        /// Writes to I2C
+        /// </summary>
+        /// <param name="data">data to write to I2C</param>
+        /// <param name="length">nr of bytes to write</param>
         public void Write(byte[] data, int length)
         {
             if (length < 1 || length > maxBufferLength) throw new Exception("Length is out of bounds");
