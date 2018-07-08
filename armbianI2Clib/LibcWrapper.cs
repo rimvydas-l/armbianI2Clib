@@ -9,7 +9,7 @@ namespace armbianI2Clib
         public static extern int Open(string fileName, int mode);
 
         [DllImport("libc.so", EntryPoint = "ioctl", SetLastError = true)]
-        public static extern int Ioctl(int fd, int request, IntPtr data);
+        public static extern int Ioctl(int fd, int request, int data);
 
         [DllImport("libc.so", EntryPoint = "read", SetLastError = true)]
         public static extern int Read(int handle, byte[] data, int length);
@@ -17,5 +17,7 @@ namespace armbianI2Clib
         [DllImport("libc.so", EntryPoint = "write", SetLastError = true)]
         public static extern int Write(int handle, byte[] data, int length);
 
+        [DllImport("libc.so", EntryPoint = "close", SetLastError = true)]
+        public static extern int Close(int fd);
     }
 }
