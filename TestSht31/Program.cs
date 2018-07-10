@@ -24,6 +24,7 @@ namespace TestSht31
 
                     Console.WriteLine($"Read count: {readBuff.Length}");
                     Console.WriteLine($"Read 1:{readBuff[0]}, 2:{readBuff[1]}, 3:{readBuff[2]}");
+                    Console.WriteLine($"Temp: {CalcTemp(readBuff[0], readBuff[1])}C");
                 }
             }
             catch (Exception ex)
@@ -31,6 +32,11 @@ namespace TestSht31
                 Console.WriteLine($"Exception: {ex.Message}");
             }
             Console.WriteLine("END");
+        }
+
+        static double CalcTemp(int hByte, int lByte)
+        {
+            return (-45 + 175 * ((double)(hByte * 256 + lByte) / 65535));
         }
     }
 }
